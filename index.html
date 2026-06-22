@@ -634,7 +634,50 @@
     .legal {
       max-width: 980px;
       margin-top: 16px;
+      font-size: .875rem;
+    }
+
+    .clinical-notice {
+      max-width: 980px;
+      margin-top: 18px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--gold);
+      color: var(--muted);
+      background: rgba(247, 245, 240, .72);
+      font-size: .88rem;
+    }
+
+    .section-dark .clinical-notice {
+      color: rgba(247, 245, 240, .86);
+      background: rgba(247, 245, 240, .06);
+    }
+
+    .site-legal-footer {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(247, 245, 240, .18);
+      color: rgba(247, 245, 240, .8);
+    }
+
+    .legal-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+    }
+
+    .legal-footer-links a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      color: var(--white);
       font-size: .86rem;
+      font-weight: 800;
+      text-underline-offset: 3px;
+    }
+
+    .legal-footer-copy {
+      margin-top: 8px;
+      font-size: .875rem;
     }
 
     .whatsapp-float {
@@ -879,6 +922,7 @@
             </ol>
           </article>
         </div>
+        <p class="clinical-notice">La información de este sitio es general y no sustituye una evaluación médica, psicológica o profesional individual. Navegar por la página o enviar un mensaje inicial no crea una relación médico-paciente ni psicoterapéutica.</p>
       </div>
     </section>
 
@@ -919,7 +963,7 @@
         <h2 id="proceso-titulo">Cómo solicitar una evaluación inicial</h2>
         <div class="process-grid">
           <article class="process-step"><span class="step-number">Paso 1</span><h3>Elige el servicio</h3><p>Selecciona Medicina del Sueño o Psicoterapia según el principal motivo de consulta.</p></article>
-          <article class="process-step"><span class="step-number">Paso 2</span><h3>Solicita la evaluación</h3><p>Completa el formulario o comunícate por WhatsApp para coordinar la evaluación.</p></article>
+          <article class="process-step"><span class="step-number">Paso 2</span><h3>Solicita la evaluación</h3><p>Comunícate por WhatsApp para coordinar la evaluación inicial.</p></article>
           <article class="process-step"><span class="step-number">Paso 3</span><h3>Realiza la evaluación</h3><p>Durante la evaluación se revisará tu situación, tus necesidades y los posibles siguientes pasos.</p></article>
           <article class="process-step"><span class="step-number">Paso 4</span><h3>Recibe una recomendación</h3><p>Después de la evaluación se definirá si alguno de los programas de Mente Serena es adecuado para ti.</p></article>
         </div>
@@ -959,16 +1003,24 @@
         <div class="contact-panel">
           <h3>Un primer contacto reservado</h3>
           <p>Indica si buscas Medicina del Sueño, Psicoterapia o si todavía no estás seguro. Durante la conversación se confirmarán la modalidad disponible y el profesional que atenderá tu solicitud.</p>
-          <p class="privacy-note">Utiliza el botón flotante para iniciar la conversación. Evita enviar historias clínicas, documentos médicos o información especialmente sensible en el primer mensaje.</p>
-          <a class="privacy-link" href="#privacidad">Privacidad del sitio</a>
+          <p class="privacy-note">Al continuar hacia WhatsApp abandonarás este sitio. Evita enviar historias clínicas, resultados médicos, fotografías, documentos de identidad o información especialmente sensible en el primer mensaje. WhatsApp aplica sus propias condiciones y políticas de privacidad.</p>
         </div>
-        <p class="legal" id="privacidad">Este sitio no incluye formularios, cookies de seguimiento ni almacenamiento de datos personales. Al abrir WhatsApp, el tratamiento de la información se rige por las condiciones de esa plataforma. La información de este sitio es informativa y no sustituye una evaluación médica, psicológica o profesional individual. Mente Serena no funciona como servicio de urgencias.</p>
-        <p class="legal">La modalidad y el profesional asignado se confirman de forma privada durante el contacto inicial.</p>
+        <p class="clinical-notice">Mente Serena no funciona como servicio de urgencias ni línea de crisis. Ante riesgo inmediato, ideación suicida, intoxicación, pérdida de conciencia o una emergencia médica o psiquiátrica, comunícate con los servicios de emergencia de tu ubicación o acude al servicio de urgencias más cercano.</p>
+        <footer class="site-legal-footer">
+          <nav class="legal-footer-links" aria-label="Enlaces legales">
+            <a href="privacidad.html">Privacidad</a>
+            <a href="terminos.html">Términos</a>
+            <a href="mailto:restauratusueno@gmail.com" aria-label="Enviar correo legal — aplicación externa">Correo legal</a>
+            <a href="#inicio">Volver al inicio</a>
+          </nav>
+          <p class="legal-footer-copy">© 2026 Mente Serena S.A.S. Todos los derechos reservados.</p>
+          <p class="legal-footer-copy">Este sitio no utiliza inteligencia artificial para analizar síntomas, recomendar servicios ni tomar decisiones automatizadas.</p>
+        </footer>
       </div>
     </section>
   </main>
 
-  <a class="whatsapp-float" href="https://wa.me/573128949710?text=Hola%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20la%20evaluaci%C3%B3n%20inicial%20de%20Mente%20Serena." aria-label="Hablar por WhatsApp">
+  <a class="whatsapp-float" href="https://wa.me/573128949710?text=Hola%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20la%20evaluaci%C3%B3n%20inicial%20de%20Mente%20Serena." rel="noopener noreferrer external" aria-label="Abrir WhatsApp — plataforma externa">
     <svg viewBox="0 0 32 32" aria-hidden="true">
       <path fill="currentColor" d="M16 4.8A11.1 11.1 0 0 0 6.6 21.7L5.2 27l5.4-1.4A11.1 11.1 0 1 0 16 4.8Zm0 2a9 9 0 0 1 7.7 13.8 9 9 0 0 1-12 3.3l-.4-.2-3.2.8.9-3.1-.3-.4A9 9 0 0 1 16 6.8Zm-3.8 4.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.4 5.2 4.6 2.6 1 3.1.8 3.7.8.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5-.1-.2-.7-1.7-.9-2.3-.3-.6-.5-.5-.7-.5h-.7Z"/>
     </svg>

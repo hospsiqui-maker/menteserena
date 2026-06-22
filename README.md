@@ -10,6 +10,8 @@ Sitio estático publicado con GitHub Pages:
 - `sitemap.xml`: mapa del sitio para buscadores.
 - `robots.txt`: reglas de rastreo y referencia al sitemap.
 - `google265c39322475edcf.html`: verificación de Google.
+- `privacidad.html`: Política de Privacidad y Tratamiento de Datos Personales.
+- `terminos.html`: Términos y Condiciones de Uso y Servicio.
 
 ## Servicios presentados
 
@@ -35,6 +37,8 @@ El comando local es:
 El flujo `.github/workflows/validate.yml` ejecuta la misma revisión en cada actualización del repositorio. Comprueba SEO básico, nueve bloques principales, enlaces internos, un único acceso a WhatsApp, contenido esencial y que el sitio no contenga formularios.
 
 También valida la etiqueta robots, `robots.txt`, el sitemap y el bloque JSON-LD de `MedicalBusiness`.
+
+La revisión incluye las páginas legales, sus rutas públicas, metadatos, enlaces comunes y la ausencia de formularios, almacenamiento local, cookies propias o scripts externos.
 
 ## Decisiones de la auditoría SEO
 

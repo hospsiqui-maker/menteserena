@@ -8,6 +8,8 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / "index.html"
+PRIVACY = ROOT / "privacidad.html"
+TERMS = ROOT / "terminos.html"
 SITEMAP = ROOT / "sitemap.xml"
 ROBOTS = ROOT / "robots.txt"
 WHATSAPP_NUMBER = "573128949710"
@@ -28,6 +30,8 @@ class SiteParser(HTMLParser):
         self.has_description = False
         self.has_canonical = False
         self.has_robots_meta = False
+        self.title = ""
+        self.in_title = False
 
     def handle_starttag(self, tag, attrs):
         values = dict(attrs)
@@ -35,6 +39,8 @@ class SiteParser(HTMLParser):
 
         if tag == "html":
             self.lang = values.get("lang")
+        if tag == "title":
+            self.in_title = True
         if tag == "h1":
             self.h1_count += 1
         if tag == "section":
@@ -58,6 +64,14 @@ class SiteParser(HTMLParser):
                 self.duplicate_ids.add(element_id)
             self.ids.add(element_id)
 
+    def handle_endtag(self, tag):
+        if tag == "title":
+            self.in_title = False
+
+    def handle_data(self, data):
+        if self.in_title:
+            self.title += data
+
 
 def fail(errors, message):
     errors.append(message)
@@ -68,6 +82,10 @@ def main():
 
     if not INDEX.exists():
         fail(errors, "No existe index.html.")
+    if not PRIVACY.exists():
+        fail(errors, "No existe privacidad.html.")
+    if not TERMS.exists():
+        fail(errors, "No existe terminos.html.")
     if not SITEMAP.exists():
         fail(errors, "No existe sitemap.xml.")
     if not ROBOTS.exists():
@@ -110,7 +128,7 @@ def main():
             continue
 
         parsed = urlparse(href)
-        if parsed.scheme not in {"https"}:
+        if parsed.scheme not in {"", "https", "mailto"}:
             fail(errors, f"Enlace con esquema no permitido: {href}.")
 
         if parsed.netloc == "wa.me":
@@ -154,6 +172,65 @@ def main():
     if "Sitemap: https://hospsiqui-maker.github.io/menteserena/sitemap.xml" not in robots:
         fail(errors, "robots.txt no apunta al sitemap publico.")
 
+    legal_pages = [
+        (
+            PRIVACY,
+            "Política de Privacidad | Mente Serena",
+            "https://hospsiqui-maker.github.io/menteserena/privacidad.html",
+            21,
+        ),
+        (
+            TERMS,
+            "Términos y Condiciones | Mente Serena",
+            "https://hospsiqui-maker.github.io/menteserena/terminos.html",
+            38,
+        ),
+    ]
+    for path, expected_title, expected_canonical, expected_sections in legal_pages:
+        legal_html = path.read_text(encoding="utf-8")
+        legal_parser = SiteParser()
+        legal_parser.feed(legal_html)
+        if legal_parser.lang != "es":
+            fail(errors, f"{path.name} no declara lang=\"es\".")
+        if legal_parser.h1_count != 1:
+            fail(errors, f"{path.name} debe contener un unico H1.")
+        if legal_parser.title.strip() != expected_title:
+            fail(errors, f"Titulo inesperado en {path.name}.")
+        if not legal_parser.has_description or not legal_parser.has_robots_meta:
+            fail(errors, f"Metadatos incompletos en {path.name}.")
+        if expected_canonical not in legal_html:
+            fail(errors, f"Canonical incorrecto en {path.name}.")
+        if len(legal_parser.duplicate_ids) > 0:
+            fail(errors, f"IDs duplicados en {path.name}.")
+        if legal_html.count('<section id="seccion-') != expected_sections:
+            fail(errors, f"Contenido juridico incompleto en {path.name}.")
+        for required_link in ["privacidad.html", "terminos.html", "index.html", "mailto:restauratusueno@gmail.com"]:
+            if required_link not in legal_html:
+                fail(errors, f"Falta el enlace {required_link} en {path.name}.")
+        for prohibited in ["<form", "localStorage", "sessionStorage", "document.cookie", "script src="]:
+            if prohibited in legal_html:
+                fail(errors, f"Tecnologia no permitida en {path.name}: {prohibited}.")
+
+    for public_url in [
+        "https://hospsiqui-maker.github.io/menteserena/",
+        "https://hospsiqui-maker.github.io/menteserena/privacidad.html",
+        "https://hospsiqui-maker.github.io/menteserena/terminos.html",
+    ]:
+        if public_url not in sitemap:
+            fail(errors, f"El sitemap no contiene {public_url}.")
+
+    required_index_legal = [
+        'href="privacidad.html"',
+        'href="terminos.html"',
+        "© 2026 Mente Serena S.A.S. Todos los derechos reservados.",
+        "Este sitio no utiliza inteligencia artificial para analizar síntomas, recomendar servicios ni tomar decisiones automatizadas.",
+        "Mente Serena no funciona como servicio de urgencias ni línea de crisis.",
+        'rel="noopener noreferrer external"',
+    ]
+    for requirement in required_index_legal:
+        if requirement not in html:
+            fail(errors, f"Falta integracion legal en index.html: {requirement}.")
+
     json_ld_blocks = re.findall(
         r'<script\s+type="application/ld\+json">\s*(.*?)\s*</script>',
         html,
@@ -190,6 +267,7 @@ def report(errors):
     print("- Sitio sin formularios ni captura de datos")
     print("- Contenido esencial y sitemap")
     print("- robots.txt y datos estructurados")
+    print("- paginas legales y avisos contextuales")
     return 0
 
 
