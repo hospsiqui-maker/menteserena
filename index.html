@@ -1,0 +1,999 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mente Serena | Medicina del sueño y psicoterapia para adultos</title>
+  <meta name="description" content="Medicina del sueño con Neurorest y psicoterapia con Vertex para adultos con insomnio, sueño no reparador, ansiedad o sobrecarga emocional. Evaluación inicial: USD 150.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#071A2F">
+  <meta property="og:title" content="Mente Serena | Medicina del sueño y psicoterapia">
+  <meta property="og:description" content="Dos rutas clínicas diferenciadas para problemas de sueño, ansiedad y malestar emocional.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hospsiqui-maker.github.io/menteserena/">
+  <link rel="canonical" href="https://hospsiqui-maker.github.io/menteserena/">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "@id": "https://hospsiqui-maker.github.io/menteserena/#organization",
+      "name": "Mente Serena",
+      "url": "https://hospsiqui-maker.github.io/menteserena/",
+      "description": "Medicina del sueño mediante el método Neurorest y psicoterapia mediante el método Vertex para adultos.",
+      "telephone": "+57 312 894 9710",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Colombia"
+      },
+      "availableService": [
+        {
+          "@type": "Service",
+          "name": "Medicina del Sueño",
+          "description": "Evaluación e intervención clínica para dificultades de sueño mediante el método Neurorest."
+        },
+        {
+          "@type": "Service",
+          "name": "Psicoterapia",
+          "description": "Evaluación y proceso psicoterapéutico para ansiedad y malestar emocional mediante el método Vertex."
+        }
+      ],
+      "makesOffer": {
+        "@type": "Offer",
+        "name": "Evaluación inicial",
+        "price": "150",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://hospsiqui-maker.github.io/menteserena/#proceso"
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --midnight: #071A2F;
+      --navy: #0A2540;
+      --forest: #1E592F;
+      --emerald: #0F7357;
+      --gold: #A37F14;
+      --white: #F7F5F0;
+      --beige: #E8E2D8;
+      --graphite: #2C2E33;
+      --muted: #5B5E64;
+      --line: #C5C6C8;
+      --danger: #9B2C2C;
+      --font: Arial, Helvetica, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --content: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      overflow-x: hidden;
+      background: var(--midnight);
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--graphite);
+      background: var(--white);
+      font-family: var(--font);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 100;
+      padding: 10px 14px;
+      color: var(--white);
+      background: var(--forest);
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus { transform: none; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      color: var(--white);
+      border-bottom: 1px solid rgba(247, 245, 240, .14);
+      background: var(--midnight);
+    }
+
+    .header-inner {
+      width: min(var(--content), calc(100% - 32px));
+      min-height: 68px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .brand::before {
+      content: "";
+      width: 26px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 10px;
+      color: rgba(247, 245, 240, .94);
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    .nav a:hover { color: var(--white); }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(247, 245, 240, .3);
+      border-radius: 4px;
+      color: var(--white);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .menu-button span,
+    .menu-button::before,
+    .menu-button::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 4px auto;
+      background: currentColor;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      color: var(--white);
+      background: var(--navy);
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .btn:hover { background: var(--emerald); }
+
+    .btn-light {
+      color: var(--navy);
+      background: var(--white);
+      border-color: var(--navy);
+    }
+
+    .btn-light:hover { color: var(--white); background: var(--navy); }
+
+    .btn-secondary {
+      color: var(--navy);
+      background: transparent;
+      border-color: rgba(10, 37, 64, .55);
+    }
+
+    .btn-secondary:hover { color: var(--white); background: var(--navy); }
+
+    .section {
+      min-height: calc(100svh - 68px);
+      display: grid;
+      align-items: center;
+      padding: 28px 24px;
+      scroll-margin-top: 68px;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    .section-inner {
+      width: min(var(--content), 100%);
+      margin: 0 auto;
+    }
+
+    .section-narrow {
+      width: min(820px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-dark {
+      color: var(--white);
+      background: var(--midnight);
+    }
+
+    .section-beige { background: var(--beige); }
+    .section-white { background: var(--white); }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-weight: 750;
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 930px;
+      font-size: clamp(2.15rem, 4vw, 3.45rem);
+    }
+
+    h2 {
+      max-width: 800px;
+      color: var(--navy);
+      font-size: clamp(1.75rem, 2.8vw, 2.65rem);
+    }
+
+    h3 {
+      color: var(--navy);
+      font-size: clamp(1.25rem, 2vw, 1.65rem);
+    }
+
+    .section-dark h2,
+    .section-dark h3 { color: var(--white); }
+
+    p { margin: 0; }
+    p + p { margin-top: 14px; }
+
+    .lead {
+      max-width: 850px;
+      margin-top: 16px;
+      font-size: clamp(1rem, 1.45vw, 1.15rem);
+    }
+
+    .muted { color: var(--muted); }
+    .section-dark .muted { color: rgba(247, 245, 240, .84); }
+
+    .hero {
+      min-height: calc(100svh - 68px);
+      display: grid;
+      align-items: center;
+      padding-top: 22px;
+      padding-bottom: 22px;
+      color: var(--white);
+      background: var(--midnight);
+    }
+
+    .hero-intro { max-width: 930px; }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .service-card {
+      min-width: 0;
+      padding: clamp(20px, 2.5vw, 28px);
+      border: 1px solid rgba(247, 245, 240, .18);
+      border-top: 3px solid var(--gold);
+      border-radius: 6px;
+      background: var(--navy);
+    }
+
+    .service-card:nth-child(2) { border-top-color: #4D9B72; }
+
+    .service-card h2 {
+      color: var(--white);
+      font-size: clamp(1.45rem, 2.5vw, 2rem);
+    }
+
+    .service-card p {
+      margin-top: 10px;
+      color: rgba(247, 245, 240, .82);
+      font-size: .92rem;
+    }
+
+    .method-label {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .card-actions .btn-secondary {
+      color: var(--white);
+      border-color: rgba(247, 245, 240, .48);
+    }
+
+    .card-actions .btn-secondary:hover {
+      color: var(--navy);
+      background: var(--white);
+    }
+
+    .trust-strip {
+      min-height: calc(100svh - 68px);
+      display: grid;
+      align-items: center;
+      padding: 28px 24px;
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    .trust-inner {
+      width: min(var(--content), 100%);
+      margin: 0 auto;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .trust-item {
+      padding-left: 14px;
+      border-left: 2px solid var(--gold);
+      color: var(--navy);
+      font-size: .94rem;
+      font-weight: 750;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(28px, 6vw, 72px);
+      margin-top: 28px;
+    }
+
+    .benefit-panel {
+      padding-top: 18px;
+      border-top: 3px solid var(--gold);
+    }
+
+    .benefit-panel:nth-child(2) { border-top-color: var(--forest); }
+
+    .check-list,
+    .plain-list {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .check-list li,
+    .plain-list li {
+      position: relative;
+      padding: 6px 0 6px 24px;
+    }
+
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 0;
+      width: 9px;
+      height: 5px;
+      border-bottom: 2px solid var(--forest);
+      border-left: 2px solid var(--forest);
+      transform: rotate(-45deg);
+    }
+
+    .plain-list li::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 2px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .methods-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: 28px;
+    }
+
+    .method-section {
+      padding: 22px;
+      border: 1px solid rgba(247, 245, 240, .18);
+      border-top: 3px solid var(--gold);
+      border-radius: 6px;
+      background: var(--navy);
+    }
+
+    .method-section:nth-child(2) {
+      border-top-color: #4D9B72;
+    }
+
+    .method-steps {
+      margin: 0;
+      padding: 0;
+      counter-reset: method;
+      list-style: none;
+    }
+
+    .method-steps li {
+      position: relative;
+      min-height: 38px;
+      padding: 5px 0 8px 42px;
+      counter-increment: method;
+      font-size: .9rem;
+    }
+
+    .method-steps li::before {
+      content: counter(method);
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    .feature-grid,
+    .case-grid,
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .feature,
+    .case,
+    .process-step {
+      padding: 15px 17px;
+      border: 1px solid rgba(10, 37, 64, .16);
+      border-radius: 6px;
+      background: rgba(247, 245, 240, .7);
+    }
+
+    .feature p,
+    .case p,
+    .process-step p {
+      margin-top: 7px;
+      font-size: .88rem;
+      line-height: 1.42;
+    }
+
+    .case h3 { font-size: 1.02rem; }
+
+    .notice {
+      max-width: 930px;
+      margin-top: 14px;
+      padding: 10px 14px;
+      border-left: 3px solid var(--gold);
+      color: var(--muted);
+      background: rgba(247, 245, 240, .72);
+      font-size: .92rem;
+    }
+
+    .step-number {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--gold);
+      font-size: .76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .price-box {
+      margin-top: 18px;
+      padding: 18px 22px;
+      border: 1px solid rgba(163, 127, 20, .55);
+      border-radius: 6px;
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    .price {
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .faq-list {
+      margin-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    details {
+      border-bottom: 1px solid var(--line);
+    }
+
+    summary {
+      min-height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 4px;
+      color: var(--navy);
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      flex: 0 0 auto;
+      font-size: 1.45rem;
+      font-weight: 400;
+    }
+
+    details[open] summary::after { content: "−"; }
+
+    details p {
+      max-width: 850px;
+      padding: 0 4px 12px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .contact-panel {
+      max-width: 900px;
+      margin-top: 18px;
+      padding: 22px 26px;
+      border: 1px solid rgba(247, 245, 240, .22);
+      border-top: 3px solid var(--gold);
+      border-radius: 6px;
+      background: var(--navy);
+    }
+
+    .contact-panel h3,
+    .contact-panel p { color: var(--white); }
+
+    .contact-panel .actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .contact-panel .btn { background: var(--forest); }
+
+    .privacy-note {
+      color: rgba(247, 245, 240, .7);
+      font-size: .88rem;
+    }
+
+    .privacy-link {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      margin-top: 10px;
+      color: var(--white);
+      font-size: .88rem;
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .legal {
+      max-width: 980px;
+      margin-top: 16px;
+      font-size: .86rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 18;
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 15px;
+      border: 1px solid var(--gold);
+      border-radius: 25px;
+      color: var(--white);
+      background: var(--navy);
+      font-size: .88rem;
+      font-weight: 800;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .22);
+    }
+
+    .whatsapp-float svg {
+      width: 24px;
+      height: 24px;
+      flex: 0 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      html { scroll-snap-type: none; }
+      .nav {
+        position: absolute;
+        top: 68px;
+        right: 0;
+        left: 0;
+        display: none;
+        padding: 12px 16px 18px;
+        border-bottom: 1px solid rgba(247, 245, 240, .16);
+        background: var(--midnight);
+      }
+
+      .nav.is-open { display: grid; }
+      .nav a { width: 100%; }
+      .menu-button { display: block; }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .methods-grid { grid-template-columns: 1fr; }
+      .feature-grid, .case-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 901px) and (max-height: 800px) {
+      .header-inner { min-height: 58px; }
+      .section { min-height: calc(100svh - 58px); padding-top: 18px; padding-bottom: 18px; scroll-margin-top: 58px; }
+      .hero { min-height: calc(100svh - 58px); padding-top: 22px; padding-bottom: 22px; }
+      .trust-strip { min-height: calc(100svh - 58px); padding-top: 18px; padding-bottom: 18px; }
+      h1 { max-width: 1000px; font-size: clamp(2.15rem, 3.3vw, 2.9rem); }
+      h2 { font-size: clamp(1.65rem, 2.5vw, 2.25rem); }
+      .lead { margin-top: 10px; font-size: .98rem; }
+      .service-grid { margin-top: 16px; }
+      .service-card { padding: 18px 20px; }
+      .service-card h2 { font-size: 1.35rem; }
+      .service-card p { margin-top: 8px; font-size: .84rem; line-height: 1.42; }
+      .method-label { margin-top: 10px; font-size: .9rem; }
+      .card-actions { margin-top: 12px; }
+      .card-actions .btn { min-height: 40px; padding: 9px 13px; font-size: .84rem; }
+      .case p, .feature p, .process-step p { font-size: .8rem; }
+      .feature, .case, .process-step { padding: 12px 14px; }
+      .methods-grid { margin-top: 16px; }
+      .method-section { padding: 15px 17px; }
+      .method-steps li { min-height: 31px; padding-top: 2px; padding-bottom: 4px; font-size: .8rem; }
+      .faq-list { margin-top: 10px; }
+      summary { min-height: 40px; padding-top: 7px; padding-bottom: 7px; font-size: .88rem; }
+    }
+
+    @media (max-width: 680px) {
+      .section { padding: 58px 18px; }
+      .header-inner { width: calc(100% - 24px); }
+      .section, .trust-strip, .hero {
+        min-height: auto;
+        display: block;
+        padding-top: 44px;
+        padding-bottom: 44px;
+        scroll-snap-align: none;
+      }
+      h1 { font-size: clamp(2rem, 10vw, 2.8rem); }
+      h2 { font-size: clamp(1.72rem, 8vw, 2.35rem); }
+      .service-grid, .two-column, .trust-grid,
+      .feature-grid, .case-grid, .process-grid, .methods-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 24px; }
+      .card-actions, .actions { display: grid; }
+      .card-actions .btn, .actions .btn { width: 100%; }
+      .contact-panel .actions { display: grid; }
+      .whatsapp-float {
+        right: 12px;
+        bottom: 12px;
+        width: 50px;
+        padding: 0;
+        justify-content: center;
+      }
+      .whatsapp-float span { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#inicio" aria-label="Mente Serena, inicio">Mente Serena</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+        <span aria-hidden="true"></span>
+      </button>
+      <nav class="nav" id="menu-principal" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#metodos">Métodos</a>
+        <a href="#proceso">Proceso y precio</a>
+        <a href="#preguntas">Preguntas</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="section hero" id="inicio">
+      <div class="section-inner">
+        <div class="hero-intro">
+          <p class="eyebrow">Mente Serena</p>
+          <h1>Medicina del sueño y psicoterapia para adultos que necesitan recuperar su descanso, bienestar emocional y funcionamiento diario.</h1>
+          <p class="lead muted">Elige la ruta que mejor describe tu motivo principal. La evaluación inicial permite orientar los siguientes pasos.</p>
+        </div>
+
+        <div class="service-grid" id="servicios">
+          <article class="service-card">
+            <p class="eyebrow">Medicina del Sueño</p>
+            <h2>Tratamiento clínico para problemas de sueño</h2>
+            <p>Para adultos con insomnio, despertares frecuentes, sueño no reparador o dificultades de descanso que afectan su energía y funcionamiento diario.</p>
+            <span class="method-label">Método Neurorest</span>
+            <p>Un proceso estructurado de evaluación, intervención y seguimiento enfocado en comprender y tratar los factores que mantienen las dificultades de sueño.</p>
+            <div class="card-actions">
+              <a class="btn" href="#proceso">Ver evaluación inicial</a>
+              <a class="btn btn-secondary" href="#neurorest">Conocer Neurorest</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <p class="eyebrow">Psicoterapia</p>
+            <h2>Psicoterapia para ansiedad y malestar emocional</h2>
+            <p>Para adultos que experimentan ansiedad, sobrecarga emocional, preocupación constante o dificultades que interfieren con su vida personal, familiar o laboral.</p>
+            <span class="method-label">Método Vertex</span>
+            <p>Un proceso psicoterapéutico estructurado para comprender los patrones que mantienen el malestar, desarrollar recursos emocionales y recuperar funcionalidad.</p>
+            <div class="card-actions">
+              <a class="btn" href="#proceso">Ver evaluación inicial</a>
+              <a class="btn btn-secondary" href="#vertex">Conocer Vertex</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Características del proceso">
+      <div class="trust-inner">
+        <p class="eyebrow">Una ruta clara</p>
+        <h2>La evaluación organiza el siguiente paso</h2>
+        <p class="lead muted">Cada servicio conserva un método propio dentro de una misma atención reservada.</p>
+        <div class="trust-grid">
+          <div class="trust-item">Dos rutas clínicas según el motivo de consulta</div>
+          <div class="trust-item">Evaluación antes de recomendar un programa</div>
+          <div class="trust-item">Atención presencial y virtual</div>
+          <div class="trust-item">Seguimiento y ajuste según la evolución</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" aria-labelledby="beneficios-titulo">
+      <div class="section-inner">
+        <p class="eyebrow">Beneficios posibles</p>
+        <h2 id="beneficios-titulo">Una atención orientada al funcionamiento cotidiano</h2>
+        <p class="lead muted">Los objetivos se definen según cada caso. Estos beneficios describen áreas que pueden trabajarse, no resultados garantizados.</p>
+
+        <div class="two-column">
+          <article class="benefit-panel">
+            <h3>Medicina del Sueño</h3>
+            <ul class="check-list">
+              <li>Recuperar una rutina de sueño más estable.</li>
+              <li>Reducir el tiempo que se permanece despierto en la cama.</li>
+              <li>Comprender los factores que interfieren con el descanso.</li>
+              <li>Disminuir el impacto del mal sueño durante el día.</li>
+              <li>Recuperar energía, concentración y funcionamiento cotidiano.</li>
+              <li>Desarrollar estrategias sostenibles para cuidar el sueño.</li>
+            </ul>
+          </article>
+
+          <article class="benefit-panel">
+            <h3>Psicoterapia</h3>
+            <ul class="check-list">
+              <li>Comprender qué mantiene la ansiedad o el malestar emocional.</li>
+              <li>Reducir el impacto de la preocupación en la vida diaria.</li>
+              <li>Desarrollar herramientas de regulación emocional.</li>
+              <li>Recuperar actividades, rutinas y relaciones afectadas.</li>
+              <li>Tomar decisiones con mayor claridad.</li>
+              <li>Construir estrategias para afrontar situaciones difíciles.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="metodos" aria-labelledby="metodos-titulo">
+      <div class="section-inner">
+        <p class="eyebrow">Métodos de atención</p>
+        <h2 id="metodos-titulo">Un método específico para cada servicio</h2>
+
+        <div class="methods-grid">
+          <article class="method-section" id="neurorest">
+            <p class="eyebrow">Medicina del Sueño</p>
+            <h3>Método Neurorest</h3>
+            <p class="muted">Organiza la evaluación, el plan clínico y el seguimiento de las dificultades de sueño.</p>
+            <ol class="method-steps">
+              <li>Evaluación inicial del problema de sueño.</li>
+              <li>Identificación de factores que mantienen la dificultad.</li>
+              <li>Definición de un plan clínico.</li>
+              <li>Seguimiento de síntomas, hábitos y evolución.</li>
+              <li>Ajustes según el progreso observado.</li>
+              <li>Educación y estrategias de descanso.</li>
+            </ol>
+          </article>
+
+          <article class="method-section" id="vertex">
+            <p class="eyebrow">Psicoterapia</p>
+            <h3>Método Vertex</h3>
+            <p class="muted">Estructura el proceso alrededor del motivo de consulta, los objetivos y su aplicación en la vida diaria.</p>
+            <ol class="method-steps">
+              <li>Evaluación inicial del motivo de consulta.</li>
+              <li>Identificación de patrones emocionales y conductuales.</li>
+              <li>Definición conjunta de objetivos terapéuticos.</li>
+              <li>Desarrollo de recursos para la vida diaria.</li>
+              <li>Seguimiento del proceso.</li>
+              <li>Revisión periódica de avances y necesidades.</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-beige" aria-labelledby="diferenciadores-titulo">
+      <div class="section-inner">
+        <p class="eyebrow">Cómo se organiza la atención</p>
+        <h2 id="diferenciadores-titulo">Diferenciadores concretos del proceso</h2>
+        <div class="feature-grid">
+          <article class="feature"><h3>Dos rutas diferenciadas</h3><p>El motivo de consulta orienta hacia Medicina del Sueño o Psicoterapia.</p></article>
+          <article class="feature"><h3>Evaluación inicial</h3><p>La recomendación se realiza después de revisar la situación y las necesidades.</p></article>
+          <article class="feature"><h3>Método por servicio</h3><p>Neurorest estructura Medicina del Sueño y Vertex organiza Psicoterapia.</p></article>
+          <article class="feature"><h3>Objetivos definidos</h3><p>El proceso parte de objetivos relacionados con el funcionamiento de cada persona.</p></article>
+          <article class="feature"><h3>Seguimiento</h3><p>La evolución y las necesidades se revisan durante el proceso.</p></article>
+          <article class="feature"><h3>Siguientes pasos claros</h3><p>Después de la evaluación se comunica la recomendación y el alcance del plan.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" aria-labelledby="casos-titulo">
+      <div class="section-inner">
+        <p class="eyebrow">Casos ilustrativos</p>
+        <h2 id="casos-titulo">Ejemplos de situaciones que podemos abordar</h2>
+        <div class="notice">Los siguientes son ejemplos ilustrativos de procesos clínicos frecuentes. No corresponden a testimonios de pacientes específicos y no representan una garantía de resultados.</div>
+        <div class="case-grid">
+          <article class="case"><h3>Dificultad para conciliar el sueño</h3><p>Una persona tarda mucho en dormirse y comienza a preocuparse desde antes de acostarse. Mediante Neurorest se evalúan los factores que mantienen el problema y se organiza un plan para reducir la activación nocturna y recuperar una rutina de descanso más consistente.</p></article>
+          <article class="case"><h3>Despertares frecuentes</h3><p>Una persona duerme por periodos cortos, se despierta varias veces y comienza el día con cansancio. El proceso se enfoca en comprender el patrón de sueño, revisar los factores asociados y realizar seguimiento a los cambios aplicados.</p></article>
+          <article class="case"><h3>Sueño no reparador</h3><p>Una persona duerme varias horas, pero siente que no descansa y presenta dificultades de concentración durante el día. La evaluación permite organizar la información clínica y definir los siguientes pasos según sus necesidades.</p></article>
+          <article class="case"><h3>Ansiedad y preocupación constante</h3><p>Una persona experimenta pensamientos repetitivos, tensión y dificultad para desconectarse de las preocupaciones. Mediante Vertex se identifican los patrones que mantienen el malestar y se desarrollan herramientas para responder de una manera más funcional.</p></article>
+          <article class="case"><h3>Sobrecarga emocional</h3><p>Una persona siente que las responsabilidades laborales y personales superan sus recursos actuales. El proceso psicoterapéutico ayuda a ordenar prioridades, reconocer señales de sobrecarga y construir estrategias aplicables a su vida cotidiana.</p></article>
+          <article class="case"><h3>Evitación y pérdida de funcionalidad</h3><p>Una persona ha comenzado a evitar actividades, conversaciones o decisiones debido al malestar emocional. El trabajo terapéutico se orienta a comprender ese patrón y recuperar progresivamente actividades importantes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-beige" id="proceso" aria-labelledby="proceso-titulo">
+      <div class="section-inner">
+        <p class="eyebrow">Proceso y precio</p>
+        <h2 id="proceso-titulo">Cómo solicitar una evaluación inicial</h2>
+        <div class="process-grid">
+          <article class="process-step"><span class="step-number">Paso 1</span><h3>Elige el servicio</h3><p>Selecciona Medicina del Sueño o Psicoterapia según el principal motivo de consulta.</p></article>
+          <article class="process-step"><span class="step-number">Paso 2</span><h3>Solicita la evaluación</h3><p>Completa el formulario o comunícate por WhatsApp para coordinar la evaluación.</p></article>
+          <article class="process-step"><span class="step-number">Paso 3</span><h3>Realiza la evaluación</h3><p>Durante la evaluación se revisará tu situación, tus necesidades y los posibles siguientes pasos.</p></article>
+          <article class="process-step"><span class="step-number">Paso 4</span><h3>Recibe una recomendación</h3><p>Después de la evaluación se definirá si alguno de los programas de Mente Serena es adecuado para ti.</p></article>
+        </div>
+
+        <div class="price-box">
+          <span class="eyebrow">Valor informado</span>
+          <span class="price">Evaluación inicial: USD 150</span>
+          <p>Si decides continuar con el programa recomendado, el valor de la evaluación inicial se descuenta del precio total.</p>
+          <p class="muted">El valor total se informa después de la evaluación, cuando se conoce el servicio y el plan recomendado.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="preguntas" aria-labelledby="faq-titulo">
+      <div class="section-narrow">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2 id="faq-titulo">Información antes de solicitar la evaluación</h2>
+        <div class="faq-list">
+          <details><summary>¿Cuánto cuesta la evaluación inicial?</summary><p>La evaluación inicial tiene un valor de USD 150. Si después de la evaluación decides continuar con el programa recomendado, este valor se descuenta del precio total del programa.</p></details>
+          <details><summary>¿Cuánto cuesta el programa completo?</summary><p>El valor total depende del servicio y del plan recomendado después de la evaluación inicial. Antes de comenzar recibirás información clara sobre el alcance y el costo del proceso.</p></details>
+          <details><summary>¿Cuánto dura el tratamiento?</summary><p>La duración depende del motivo de consulta, los objetivos definidos y la evolución del proceso. La evaluación inicial permite orientar una recomendación más precisa. No se promete una duración fija antes de conocer cada caso.</p></details>
+          <details><summary>¿Necesito una remisión médica?</summary><p>En muchos casos puedes solicitar directamente una evaluación. Sin embargo, dependiendo de tus síntomas, antecedentes o condiciones médicas, puede recomendarse una valoración complementaria.</p></details>
+          <details><summary>¿Cómo sé si necesito Medicina del Sueño o Psicoterapia?</summary><p>Medicina del Sueño está orientada a dificultades como insomnio, despertares frecuentes o sueño no reparador. Psicoterapia está orientada a ansiedad, sobrecarga emocional, preocupación persistente y otras dificultades que afectan el bienestar y el funcionamiento diario. Si no estás seguro, puedes explicarnos brevemente tu situación por WhatsApp.</p></details>
+          <details><summary>¿La atención es presencial o virtual?</summary><p>Mente Serena ofrece atención presencial y virtual. La disponibilidad y la modalidad más adecuada se confirman de forma privada al solicitar la evaluación.</p></details>
+          <details><summary>¿Quién será el profesional que me atenderá?</summary><p>Para preservar la reserva del proceso, la identidad y la información del profesional asignado se comunican directamente durante el contacto inicial por WhatsApp, según el servicio solicitado.</p></details>
+          <details><summary>¿Puedo comunicarme directamente por WhatsApp?</summary><p>Sí. Puedes utilizar el botón de WhatsApp para realizar una consulta inicial o solicitar información sobre la evaluación. Para proteger tu privacidad, evita enviar historias clínicas, documentos médicos o información especialmente sensible por este medio.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="contacto" aria-labelledby="contacto-titulo">
+      <div class="section-inner">
+        <p class="eyebrow">Contacto privado</p>
+        <h2 id="contacto-titulo">Solicita la evaluación inicial por WhatsApp</h2>
+        <p class="lead muted">Atención presencial y virtual para adultos en Colombia. La página no solicita, almacena ni procesa datos personales; el contacto se realiza directamente por WhatsApp.</p>
+
+        <div class="contact-panel">
+          <h3>Un primer contacto reservado</h3>
+          <p>Indica si buscas Medicina del Sueño, Psicoterapia o si todavía no estás seguro. Durante la conversación se confirmarán la modalidad disponible y el profesional que atenderá tu solicitud.</p>
+          <p class="privacy-note">Utiliza el botón flotante para iniciar la conversación. Evita enviar historias clínicas, documentos médicos o información especialmente sensible en el primer mensaje.</p>
+          <a class="privacy-link" href="#privacidad">Privacidad del sitio</a>
+        </div>
+        <p class="legal" id="privacidad">Este sitio no incluye formularios, cookies de seguimiento ni almacenamiento de datos personales. Al abrir WhatsApp, el tratamiento de la información se rige por las condiciones de esa plataforma. La información de este sitio es informativa y no sustituye una evaluación médica, psicológica o profesional individual. Mente Serena no funciona como servicio de urgencias.</p>
+        <p class="legal">La modalidad y el profesional asignado se confirman de forma privada durante el contacto inicial.</p>
+      </div>
+    </section>
+  </main>
+
+  <a class="whatsapp-float" href="https://wa.me/573128949710?text=Hola%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20la%20evaluaci%C3%B3n%20inicial%20de%20Mente%20Serena." aria-label="Hablar por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path fill="currentColor" d="M16 4.8A11.1 11.1 0 0 0 6.6 21.7L5.2 27l5.4-1.4A11.1 11.1 0 1 0 16 4.8Zm0 2a9 9 0 0 1 7.7 13.8 9 9 0 0 1-12 3.3l-.4-.2-3.2.8.9-3.1-.3-.4A9 9 0 0 1 16 6.8Zm-3.8 4.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.4 5.2 4.6 2.6 1 3.1.8 3.7.8.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5-.1-.2-.7-1.7-.9-2.3-.3-.6-.5-.5-.7-.5h-.7Z"/>
+    </svg>
+    <span>Hablar por WhatsApp</span>
+  </a>
+
+  <script>
+    const menuButton = document.querySelector(".menu-button");
+    const menu = document.querySelector(".nav");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
+      menuButton.setAttribute("aria-label", isOpen ? "Abrir menú" : "Cerrar menú");
+      menu.classList.toggle("is-open", !isOpen);
+    });
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Abrir menú");
+        menu.classList.remove("is-open");
+      });
+    });
+
+  </script>
+</body>
+</html>
